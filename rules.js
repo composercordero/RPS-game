@@ -2,6 +2,8 @@
 
 //User has three choices
 const choices = ["rock", "paper", "scissors",];
+let playerScore = 0;
+let computerScore = 0;
 
 //User selects an option
 function userChoice (){
@@ -25,33 +27,31 @@ const computerSelection = getComputerChoice ();
 const playerSelection = userChoice();
 console.log(playRound(playerSelection, computerSelection));
 
-//Return result
-console.log('User chose: ' + playerSelection);
-console.log('Computer chose: ' + computerSelection);
-
 //Evaluate inputs
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == choices[0]){ //rock
-        if (computerSelection == choices[1]){ return "paper wins"} //paper
-        else if (computerSelection == choices[2]){ return "rock wins"} //scissors
+        if (computerSelection == choices[1]){ computerScore++; return "paper wins"} //paper
+        else if (computerSelection == choices[2]){ playerScore++; return "rock wins"} //scissors
         else return "It's a tie" //rock
     }
     else if (playerSelection == choices[1]){ //paper
-        if (computerSelection == choices[0]){ return "paper wins"} //rock
-        else if (computerSelection == choices[2]){ return "scissors wins"} //scissors
+        if (computerSelection == choices[0]){ playerScore++; return "paper wins"} //rock
+        else if (computerSelection == choices[2]){ computerScore++;return "scissors wins"; computerScore++} //scissors
         else return "It's a tie" //paper
     }
     else if (playerSelection == choices[2]){ //scissors
-        if (computerSelection == choices[0]){ return "rock wins"} //rock
-        else if (computerSelection == choices[1]){ return "scissors wins"} //paper
+        if (computerSelection == choices[0]){ computerScore++; return "rock wins"} //rock
+        else if (computerSelection == choices[1]){ playerScore++; return "scissors wins";} //paper
         else return "It's a tie" //scissors
     }
 }
 
+//Return result
+console.log('User chose: ' + playerSelection + ', ' + 'Score: ' + playerScore);
+console.log('Computer chose: ' + computerSelection + ', ' + 'Score: ' + computerScore);
 
 //Add points
-
 
 //Optional features for future iterations
 
