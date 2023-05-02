@@ -5,9 +5,9 @@ const choices = ["rock", "paper", "scissors",];
 
 //User selects an option
 function userChoice (){
-    let playerSelection = choices (x);
-    choices[x].localeCompare(choices[y], undefined, { sensitivity: 'accent' });
-    return playerSelection
+    let question = prompt("rock, paper, or scissors?")
+    question.localeCompare(question, undefined, { sensitivity: 'accent' });
+    return question
 }
 
 //Computer randomly selects an option
@@ -17,17 +17,31 @@ function getComputerChoice (){
     return computerSelection;
 }
 
-//Evaluate inputs
-
-const playerSelection = choices[0];
+//Learn mode, update the page and see the different random combinations
+//const playerSelection = choices[Math.floor(Math.random()*choices.length)];
 const computerSelection = getComputerChoice ();
+const playerSelection = userChoice();
 console.log(playRound(playerSelection, computerSelection));
 
+console.log('User chose: ' + playerSelection);
+console.log('Computer chose: ' + computerSelection);
+
+//Evaluate inputs
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == choices[0]){ //rock
         if (computerSelection == choices[1]){ return "paper wins"} //paper
-        else if (computerSelection == choices[2]){ return "rock wins"} //scissor
+        else if (computerSelection == choices[2]){ return "rock wins"} //scissors
         else return "It's a tie" //rock
+    }
+    else if (playerSelection == choices[1]){ //paper
+        if (computerSelection == choices[0]){ return "paper wins"} //rock
+        else if (computerSelection == choices[2]){ return "scissors wins"} //scissors
+        else return "It's a tie" //paper
+    }
+    else if (playerSelection == choices[2]){ //scissors
+        if (computerSelection == choices[0]){ return "rock wins"} //rock
+        else if (computerSelection == choices[1]){ return "scissors wins"} //paper
+        else return "It's a tie" //scissors
     }
 }
 
@@ -37,7 +51,7 @@ function playRound(playerSelection, computerSelection) {
 
 //Optional features for future iterations
 
-//Learn mode in which user can see what the computer will choose
+
 
 //Add Fire, Water Sponge, and Air
 
