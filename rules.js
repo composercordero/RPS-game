@@ -3,9 +3,25 @@
 //User against computer
 
 //User has three choices
+
+const choices = ["rock", "paper", "scissors",];
+
+console.log(choices);
+
 //User selects an option
+function userChoice (x){
+    let playerSelection = choices (x);
+    choices.localeCompare(choices, undefined, { sensitivity: 'accent' });
+    return console.log(playerSelection)
+}
+
 //Computer randomly selects an option
-//Evaluate result
+
+function getComputerChoice (x){
+    
+}
+
+//Evaluate inputs
 //Return result
 //Add points
 
