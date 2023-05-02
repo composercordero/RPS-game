@@ -5,9 +5,11 @@ const choices = ["rock", "paper", "scissors",];
 
 //User selects an option
 function userChoice (){
-    let question = prompt("rock, paper, or scissors?")
-    question.localeCompare(question, undefined, { sensitivity: 'accent' });
-    return question
+    let question = prompt("rock, paper, or scissors?");
+    let lowerCase = question.toLowerCase();
+        if (lowerCase == "rock" || "paper" || "scissors") {
+        return lowerCase;
+        }else return "invalid input" 
 }
 
 //Computer randomly selects an option
@@ -23,10 +25,12 @@ const computerSelection = getComputerChoice ();
 const playerSelection = userChoice();
 console.log(playRound(playerSelection, computerSelection));
 
+//Return result
 console.log('User chose: ' + playerSelection);
 console.log('Computer chose: ' + computerSelection);
 
 //Evaluate inputs
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == choices[0]){ //rock
         if (computerSelection == choices[1]){ return "paper wins"} //paper
@@ -45,13 +49,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//Return result
+
 //Add points
 
 
 //Optional features for future iterations
-
-
 
 //Add Fire, Water Sponge, and Air
 
