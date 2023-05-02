@@ -1,31 +1,38 @@
 //Rock, Paper, Scissor - Rules
 
-//User against computer
-
 //User has three choices
-
 const choices = ["rock", "paper", "scissors",];
 
-console.log(choices);
-
 //User selects an option
-function userChoice (x){
+function userChoice (){
     let playerSelection = choices (x);
-    choices.localeCompare(choices, undefined, { sensitivity: 'accent' });
-    return console.log(playerSelection)
+    choices[x].localeCompare(choices[y], undefined, { sensitivity: 'accent' });
+    return playerSelection
 }
 
 //Computer randomly selects an option
 
-function getComputerChoice (x){
-    
+function getComputerChoice (){
+    let computerSelection = choices[Math.floor(Math.random()*choices.length)];
+    return computerSelection;
 }
 
 //Evaluate inputs
+
+const playerSelection = choices[0];
+const computerSelection = getComputerChoice ();
+console.log(playRound(playerSelection, computerSelection));
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == choices[0]){ //rock
+        if (computerSelection == choices[1]){ return "paper wins"} //paper
+        else if (computerSelection == choices[2]){ return "rock wins"} //scissor
+        else return "It's a tie" //rock
+    }
+}
+
 //Return result
 //Add points
-
-
 
 
 //Optional features for future iterations
