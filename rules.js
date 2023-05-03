@@ -15,20 +15,12 @@ function userChoice (){
 }
 
 //Computer randomly selects an option
-
 function getComputerChoice (){
     let computerSelection = choices[Math.floor(Math.random()*choices.length)];
     return computerSelection;
 }
 
-//Learn mode, update the page and see the different random combinations
-//const playerSelection = choices[Math.floor(Math.random()*choices.length)];
-const computerSelection = getComputerChoice ();
-const playerSelection = userChoice();
-console.log(playRound(playerSelection, computerSelection));
-
 //Evaluate inputs
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == choices[0]){ //rock
         if (computerSelection == choices[1]){ computerScore++; return "paper wins"} //paper
@@ -47,11 +39,33 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+/*Learn mode, update the page and see the different random combinations
+const playerSelection = choices[Math.floor(Math.random()*choices.length)];*/
+const computerSelection = getComputerChoice ();
+const playerSelection = userChoice(); //User input mode
+console.log(playRound(playerSelection, computerSelection));
+
 //Return result
 console.log('User chose: ' + playerSelection + ', ' + 'Score: ' + playerScore);
 console.log('Computer chose: ' + computerSelection + ', ' + 'Score: ' + computerScore);
 
 //Add points
+function scoreboard() {
+    computerTotal = computerScore;
+    playerTotal = playerScore;
+    return computerTotal, playerTotal;
+}
+
+const getScoreboard = scoreboard();
+console.log('Scoreboard: ' + 'Computer ' + computerTotal + ', ' + 'User ' + playerTotal);
+
+//Practice: Two flexbox, it shows you what the computer selected and you have three options to choose.
+
+//User clicks on practice and it generates random computerChoice
+//Generate three random options (one or two correct, one wrong), in three buttons.
+//User click an option and gets results (win or lose)
+//Reset button
+
 
 //Optional features for future iterations
 
