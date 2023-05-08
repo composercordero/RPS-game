@@ -24,14 +24,24 @@ const generateComputerChoice = () => {
     computerChoice = randomChoice;
     computerChoiceDisplay.innerHTML = 'Computer choice: ' + randomChoice;
 } 
-
+/* for example
 for (let i = 0; i < choices.length; i++) {
     const button = document.createElement('button');
     button.className = choices[i];
     button.innerHTML = choices[i];
     button.addEventListener('click', handleClick)
     gameGrid.appendChild(button);
+}*/
+
+//for...of example
+for (const choice of choices) {
+    const button = document.createElement('button');
+    button.className = choice;
+    button.innerHTML = choice;
+    button.addEventListener('click', handleClick)
+    gameGrid.appendChild(button);
 }
+
 
 const getResult = () => {
     switch (userChoice + computerChoice) {
@@ -131,4 +141,21 @@ const getResult = () => {
         break;       
 }
 
+To Study
+https://stackoverflow.com/questions/17976883/rock-paper-scissors-in-javascript
+
 */
+
+
+Write a loop which prompts for a number greater than 100. If the visitor enters another number – ask them to input again.
+
+
+let userChoice = (x) => {
+    num = prompt('input a number greater than 100', '')
+    while (num <= 100) {
+        alert('input a number greater than 100, please')
+    }
+}
+
+
+The loop must ask for a number until either the visitor enters a number greater than 100 or cancels the input/enters an empty line.
